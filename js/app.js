@@ -14,9 +14,8 @@ function getRequest(searchTerm){
 		part: 'snippet',
 		q: searchTerm,
 		key: 'AIzaSyCX18fh2GihWojMUnf2jjw_19xESuYytDA',
-		dataType: 'jsonp'
 	};
-	url = 'https://www.youtube.com';
+	url = 'https://www.googleapis.com/youtube/v3/search';
 
 	$.getJSON(url, params, function(data){
 		console.log(data);
