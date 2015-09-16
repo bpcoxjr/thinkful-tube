@@ -29,8 +29,9 @@ function showResults(results){
 		var thumb = value.snippet.thumbnails.medium.url;
 		var title = value.snippet.title;
         var videoId = value.id.videoId;
+        var youtubeSearch = "https://www.youtube.com/watch?v=";
         console.log(thumb);
-        videoList += '<ul><li><p>' + title + ' - ' + videoId + '</p><img src="' + thumb + ' "></li></ul>';
-          $('#search-results').prepend(videoList);
+        videoList += '<ul><li><p>' + title + '</p><img src="' + thumb + ' "></li></ul>';
+          $('#search-results').prepend(videoList).wrap('<a href=' + youtubeSearch + videoId + '></a>');
     });
 };
