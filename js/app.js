@@ -30,7 +30,7 @@ function showResults(results){
 		var title = value.snippet.title;
         var videoId = value.id.videoId;
         console.log(thumb);
-        videoList += '<ul><li><p>' + title + ' - ' + videoId + '</p><img src="' + thumb +'></li></ul>';
+        videoList += '<ul><li><p>' + title + ' - ' + videoId + '</p><img src="' + thumb + ' "></li></ul>';
           $('#search-results').prepend(videoList);
     });
 };
