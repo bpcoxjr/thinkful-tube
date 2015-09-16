@@ -18,17 +18,19 @@ function getRequest(searchTerm){
 	url = 'https://www.googleapis.com/youtube/v3/search';
 
 	$.getJSON(url, params, function(data){
-		console.log(data);
-		//showResults(data.Search);
+		console.log(data.items);
+		showResults(data.items);
 	});
 };
 
-/*function showResults(results){
-	var html ="";
-	$.each(results, function(index, value){
-	  html += '<p>' + data + '</p>';
-	  console.log(data);
-	  //console.log(value.Title);
-	});
-	$('#search-results').html(html);
-};*/
+function showResults(results){
+	var videoList ="";
+	$.each(results, function(key, value){
+		var thumb = value.snippet.thumbnails.medium.url;
+		var title = value.snippet.title;
+        var videoId = value.id.videoId;
+        console.log(thumb);
+        videoList += '<ul><li><p>' + title + ' - ' + videoId + '</p><img src="' + thumb +'></li></ul>';
+          $('#search-results').prepend(videoList);
+    });
+};
